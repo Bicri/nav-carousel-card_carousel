@@ -14,6 +14,7 @@
     function init(){
         //Calcula la altura del header --> Necesario para la animación del menu
         setAltura(header, getAltura(header));
+        reproducirSlides();
     }
 
     function menu(){
@@ -39,3 +40,49 @@
     }
 
 //-------------------------------------------------------------------------------------------------
+
+//-- SECCION DEL CAROUSEL ---------------------------------------
+
+    const slides = document.querySelectorAll('.carousel__slide');
+    const next = document.querySelector(".carousel__next");
+    const prev = document.querySelector(".carousel__prev");
+
+    let slideActual = 0;
+    let slidesTotal = slides.length - 1 ;
+
+    next.addEventListener("click", siguienteImagen);
+    prev.addEventListener("click", anteriorImagen);
+
+    function reproducirSlides(){
+        setInterval(() => {
+            siguienteImagen();
+        }, 3500);
+    }
+
+    function anteriorImagen(){
+        if(slideActual === 0){
+            slideActual = slidesTotal;
+        }else{
+            slideActual--;
+        }
+
+        slides.forEach( (slide, i) =>{
+            slide.style.transform = `translateX(${100 * (i-slideActual)}%)`;
+        } );
+    }
+
+    function siguienteImagen(){
+
+        if(slideActual === slidesTotal){
+            slideActual = 0;
+        }else{
+            slideActual++;
+        }
+
+        slides.forEach( (slide, i) =>{
+            slide.style.transform = `translateX(${100 * (i-slideActual)}%)`;
+        } );
+    }
+
+
+//-- FIN CAROUSEL -----------------------------------------------
