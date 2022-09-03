@@ -558,4 +558,30 @@ ul {
   top: 45%;
   right: 2%;
 }
+
+.card {
+  background-color: #FFFFFF;
+  width: 45%;
+  padding: 2rem;
+  border-radius: 2rem;
+  height: 75rem;
+}
+.card__header {
+  height: 40%;
+}
+.card__img {
+  margin: auto;
+  height: 100%;
+  width: 60%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.card__titulo {
+  margin: 1rem 0;
+  text-align: center;
+}
+.card__texto {
+  margin: 1rem 0;
+}
 /*# sourceMappingURL=app.css.map */

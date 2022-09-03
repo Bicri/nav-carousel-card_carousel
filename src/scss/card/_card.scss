@@ -1,0 +1,41 @@
+
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+$altura:75rem;
+
+.cardWrapper{
+    // width: 100%;
+    // position: relative;
+    // height: $altura;
+    // overflow: hidden;
+}
+
+.card{
+    background-color: v.$blanco;
+    width: 45%;
+    padding: 2rem;
+    border-radius: 2rem;
+    height: $altura;
+
+    &__header{
+        height: 40%;
+    }
+
+    &__img{
+        margin: auto;
+        height: 100%;
+        width: 60%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    &__titulo{
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    &__texto{
+        margin: 1rem 0;
+    }
+}
