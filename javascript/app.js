@@ -14,7 +14,10 @@
     function init(){
         //Calcula la altura del header --> Necesario para la animación del menu
         setAltura(header, getAltura(header));
-        reproducirSlides();
+        
+        //Carousel
+        posicionInicial(100); //posicionandolos
+        reproducirSlides(); //automaticamente  
     }
 
     function menu(){
@@ -53,36 +56,47 @@
     next.addEventListener("click", siguienteImagen);
     prev.addEventListener("click", anteriorImagen);
 
+
+
+    function anteriorImagen(){
+
+        slideActual = slideActual === 0 ? slidesTotal : slideActual-1;
+
+        moverCarousel(slides, 100, slideActual);
+    }
+
+    function siguienteImagen(){
+
+        slideActual = slideActual === slidesTotal ? 0 : slideActual+1;
+
+        moverCarousel(slides, 100, slideActual);
+    }
+
+    function moverCarousel(carousel, tamX, posicionActual){
+        carousel.forEach( (slide, i) => {
+            slide.style.transform = `translateX(${(tamX * (i-posicionActual))}%)`;
+        } )
+    }
+
     function reproducirSlides(){
         setInterval(() => {
             siguienteImagen();
         }, 3500);
     }
 
-    function anteriorImagen(){
-        if(slideActual === 0){
-            slideActual = slidesTotal;
-        }else{
-            slideActual--;
-        }
+    function posicionInicial(longitud){
 
-        slides.forEach( (slide, i) =>{
-            slide.style.transform = `translateX(${100 * (i-slideActual)}%)`;
+        //organiza el carousel
+        slides.forEach( (slide, i) => {
+            slide.style.transform = `translateX(${i * longitud}%)`
         } );
+
+        //Permite invisibilizar como se acomoda el carousel
+        setTimeout(() => {
+            slides.forEach( (slide, i) => {
+                slide.classList.remove("carousel__slide--hidden");
+            } );
+        }, 400);   
     }
-
-    function siguienteImagen(){
-
-        if(slideActual === slidesTotal){
-            slideActual = 0;
-        }else{
-            slideActual++;
-        }
-
-        slides.forEach( (slide, i) =>{
-            slide.style.transform = `translateX(${100 * (i-slideActual)}%)`;
-        } );
-    }
-
 
 //-- FIN CAROUSEL -----------------------------------------------
