@@ -23,9 +23,8 @@ $altura: 80vh;
         transition-duration: 0.5s;
         transition-timing-function: ease;
         
-        &--hidden:not(&--hidden:first-of-type){
-            visibility: hidden;
-            opacity: 0;
+        &:not(&--hidden:first-of-type){
+            transform: translateX(100%);
         }
     }
 

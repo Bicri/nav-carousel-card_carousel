@@ -16,8 +16,8 @@
         setAltura(header, getAltura(header));
         
         //Carousel
-        posicionInicial(100); //posicionandolos
-        reproducirSlides(); //automaticamente  
+        // posicionInicial(100); //posicionandolos
+        // reproducirSlides(); //automaticamente  
     }
 
     function menu(){
@@ -84,19 +84,10 @@
         }, 3500);
     }
 
-    function posicionInicial(longitud){
-
-        //organiza el carousel
-        slides.forEach( (slide, i) => {
-            slide.style.transform = `translateX(${i * longitud}%)`
-        } );
-
-        //Permite invisibilizar como se acomoda el carousel
-        setTimeout(() => {
-            slides.forEach( (slide, i) => {
-                slide.classList.remove("carousel__slide--hidden");
-            } );
-        }, 400);   
-    }
 
 //-- FIN CAROUSEL -----------------------------------------------
+
+     
+
+
+
