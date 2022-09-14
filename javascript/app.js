@@ -16,8 +16,7 @@
         setAltura(header, getAltura(header));
         
         //Carousel
-        // posicionInicial(100); //posicionandolos
-        // reproducirSlides(); //automaticamente  
+        reproducirSlides(); //automaticamente  
     }
 
     function menu(){
@@ -87,7 +86,35 @@
 
 //-- FIN CAROUSEL -----------------------------------------------
 
-     
+    let carouselContenedor = document.querySelector(".carousel__container");
+    let anchoCard;
+    let tamMax;
+
+    function actualizarInfo() {
+        anchoCard = document.querySelector(".card").offsetWidth + 16; //Se suma el ancho de la card + margin
+        tamMax = (document.querySelectorAll(".card").length * anchoCard) - document.querySelector(".carousel__container").clientWidth;
+    }
+
+    document.querySelector(".carousel__boton--prev").addEventListener("click", () =>{
+        actualizarInfo(); //En caso de modificar el ancho de la pantalla
+        if (carouselContenedor.scrollLeft > 0) {
+            moverIzqCards(carouselContenedor, -anchoCard ); //El negativo lo mueve a la derecha
+        }
+    });
+
+    document.querySelector(".carousel__boton--next").addEventListener("click", ()=>{
+        actualizarInfo(); //En caso de modificar el ancho de la pantalla
+        if (carouselContenedor.scrollLeft < tamMax) {
+            moverIzqCards(carouselContenedor, anchoCard /* x numCards a mover*/);
+        }
+    });
+
+    function moverIzqCards(elem, unit) {
+        let recorrido = elem.scrollLeft; //Cuanto se ha movido el carousel
+
+        //Mueve el carousel sumandole el ancho de la card
+        elem.scrollLeft = ((unit) + recorrido);
+    }
 
 
 

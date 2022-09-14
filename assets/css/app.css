@@ -523,7 +523,7 @@ ul {
   transition-duration: 0.5s;
   transition-timing-function: ease;
 }
-.carousel__slide:not(.carousel__slide--hidden:first-of-type) {
+.carousel__slide:not(.carousel__slide:first-of-type) {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
 }
@@ -557,5 +557,75 @@ ul {
 .carousel__next {
   top: 45%;
   right: 2%;
+}
+
+.carousel {
+  position: relative;
+}
+.carousel__container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.carousel__container::-webkit-scrollbar {
+  display: none;
+}
+.carousel__boton {
+  height: 38px;
+  width: 38px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.537254902);
+  border-radius: 50%;
+  border: 0px solid;
+  margin: auto;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.carousel__boton img {
+  width: 10px;
+}
+.carousel__boton--prev {
+  top: 0;
+  left: 5px;
+  bottom: 0;
+}
+.carousel__boton--next {
+  top: 0;
+  bottom: 0;
+  right: 5px;
+}
+
+.card {
+  background-color: white;
+  flex: 0 0 auto;
+  margin-left: 15px;
+  max-width: 100%;
+  padding: 2rem;
+}
+.card:last-child {
+  margin-right: 15px;
+}
+@media (min-width: 768px) {
+  .card {
+    max-width: 49%;
+  }
+}
+.card__img {
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.card__titulo {
+  margin: 2rem 0;
+  text-align: center;
+}
+.card__texto {
+  margin: 0;
 }
 /*# sourceMappingURL=app.css.map */

@@ -2,7 +2,41 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
-$altura: 30rem;
+$altura: 50rem;
+
+
+.card{
+    background-color: white;
+    flex: 0 0 auto;
+    margin-left: 15px;
+    max-width: 100%;
+    padding: 2rem;
+
+
+    &:last-child{
+        margin-right: 15px;
+    }
+
+    @include m.tablet {
+        max-width: 49%;
+    }
+
+    &__img{
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+
+    &__titulo{
+        margin: 2rem 0;
+        text-align: center;
+    }
+
+    &__texto{
+        margin: 0;
+    }
+}
+
+
 
 
 
